@@ -1,0 +1,39 @@
+<style>
+    .blog {
+        width: var(--page-width);
+        padding: 1rem;
+        margin-left: var(--nav-width);
+        background-color: var(--dark-page-bg);
+        height: 100vh;
+        overflow: scroll;
+        -ms-overflow-style: none:
+        scrollbar-width: none;
+    }
+    .blog::-webkit-scrollbar {
+        display: none;
+    }
+
+    .blog__title {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-align: center;
+        margin: 1rem;
+        color: var(--dark-highlight-text);
+    }
+    .blog__author {
+        font-size: 1.2rem;
+        text-align: center;
+        font-style: italic;
+        margin: 1rem;
+        color: var(--dark-highlight-text);
+    }
+    .blog__content {
+        color: var(--dark-main-text);
+        width: calc(70vw - 2rem);
+        padding: 0.5rem;
+    }
+    .blog__content * {
+        max-width: calc(70vw - 3rem);
+        word-wrap: break-word;
+    }
+</style>
