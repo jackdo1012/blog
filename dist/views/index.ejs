@@ -13,6 +13,7 @@
                     <div class="homepage__blog-list--item">
                         <a href="<%= `/p/${post[i]._id}` %>" class="item__title"><%= post[i].title %></a>
                         <p class="item__description"><%= post[i].description %></p>
+                        <p class="item__date"><i class="far fa-calendar"></i> <%= new Date(post[i].createdAt).toLocaleDateString("en-us", { year: "numeric", month: "short", day: "numeric"}) %></p>
                     </div>
                 <% } %>
             </div>
