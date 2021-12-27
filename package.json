@@ -9,6 +9,7 @@
         "start": "node dist/index.js",
         "dev": "nodemon dist/index.js",
         "watch": "tsc --watch",
+        "build": "tsc -b",
         "copy-assets": "ts-node tools/copyAssets"
     },
     "dependencies": {
