@@ -43,8 +43,6 @@ class MainController {
     public async newPost(req: Request, res: Response) {
         const { title, content, author, description, password } = req.body
         if (password !== process.env.PASSWORD) {
-            console.log(password)
-            console.log(process.env.PASSWORD)
             return res.redirect("/")
         }
         const newPost = new PostModel({
