@@ -5,6 +5,7 @@
         position: fixed;
         width: var(--nav-width);
         height: 100vh;
+        user-select: none;
     }
     .navbar__name {
         width: calc(var(--nav-width) / 3);
@@ -34,14 +35,26 @@
         width: var(--nav-width);
         margin: 0;
         padding: 0;
+        position: relative;
     }
     .navbar__list--item {
-        margin: 1rem;
+        padding: 1rem;
         text-decoration: none;
         color: var(--dark-main-text);
+        width: 100%;
+        text-align: center;
     }
     .navbar__list--item:visited {
         color: var(--dark-main-text);
+    }
+    .current {
+        visibility: hidden;
+        right: 0;
+        position: absolute;
+        width: 0.2rem;
+        height: calc(100% / 3 - 1rem);
+        background-color: var(--dark-highlight-text);
+        transition: top 0.2s ease-in-out;
     }
 
     .navbar__social {
@@ -70,7 +83,9 @@
     </div>
     <div class="navbar__list">
         <a href="/" class="navbar__list--item">Home</a>
+        <a href="/categories" class="navbar__list--item">Categories</a>
         <a href="https://jackdo1012.netlify.app" target="_blank" class="navbar__list--item">About</a>
+        <div class="current"></div>
     </div>
     <div class="navbar__social">
         <a href="https://github.com/jackdo1012" target="_blank"><i class="fab fa-github"></i></a>
@@ -78,4 +93,33 @@
         <a href="https://facebook.com/jackdo1012" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="mailto:dominhtrijack@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
     </div>
+    <script>
+        let dividedBy
+        if ("<%= here %>" !== "") {
+            const allNavItem = document.querySelectorAll(".navbar__list--item")
+            allNavItem.forEach((item, index) => {
+                if (item.innerHTML.toLowerCase() === "<%= here %>") {
+                    dividedBy = index
+                }
+            })
+            document.querySelector(".current").style.visibility = "visible"
+            document.querySelector(".current").style.top = `calc(100% / 3 * ${dividedBy} + 0.5rem)`
+        }
+        document.querySelectorAll(".navbar__list--item").forEach(each => {
+            each.onmouseover = function () {
+                document.querySelector(".current").style.top = `calc(100% / 3 * ${[...each.parentNode.children].indexOf(each)} + 0.5rem)`
+                document.querySelector(".current").style.visibility = "visible"
+            }
+        })
+        document.querySelectorAll(".navbar__list--item").forEach(each => {
+            each.onmouseout = function () {
+                if ("<%= here %>" === "") {
+                    document.querySelector(".current").style.top = null
+                    document.querySelector(".current").style.visibility = "hidden"
+                } else {
+                    document.querySelector(".current").style.top = `calc(100% / 3 * ${dividedBy} + 0.5rem)`
+                }
+            }
+        })
+    </script>
 </div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <%- include("./partials/header.ejs") %>
+    <%- include("./css/eachCategory.ejs") %>
+</head>
+<html>
+    <body>
+        <% const here = "" %>
+        <%- include("./partials/navBar.ejs", {here: ""}) %>
+        <div class="category">
+            <h1 class="category__title"><i class="fas fa-tag"></i> <%= category %></h1>
+            <div class="category__blog-list">
+                <% for (let i = 0; i < posts.length; i++) { %>
+                    <div class="category__blog-list--item">
+                        <a href="<%= `/p/${posts[i]._id}` %>" class="item__title"><%= posts[i].title %></a>
+                        <p class="item__description"><%= posts[i].description %></p>
+                        <p class="item__date"><i class="far fa-calendar"></i> <%= new Date(posts[i].createdAt).toLocaleDateString("vi-vn", { year: "numeric", month: "short", day: "numeric"}) %></p>
+                    </div>
+                <% } %>
+            </div>
+
+        </div>
+    </body
+</html>
+
+

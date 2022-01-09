@@ -20,7 +20,7 @@
         margin: 1rem;
         color: var(--dark-highlight-text);
     }
-    .blog__author {
+    .blog__info {
         font-size: 1.2rem;
         text-align: center;
         font-style: italic;
@@ -42,4 +42,31 @@
     .blog__content a:visited {
         color: var(--dark-main-text);
     }
+    .blog__content pre code {
+        background-color: var(--dark-gray);
+        padding: 1rem;
+    }
+    .blog__categories {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+    }
+    .category {
+        margin: 0.8rem;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border: 0.2rem solid var(--dark-highlight-text);
+        border-radius: 1.5rem;
+        color: var(--dark-highlight-text);
+        cursor: pointer;
+        background-color: var(--dark-nav-bg);
+        transition: background-color 0.2s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .category:hover {
+        background-color: var(--dark-pagination-hover);
+    }
+
 </style>
