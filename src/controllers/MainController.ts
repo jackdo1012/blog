@@ -34,7 +34,8 @@ class MainController {
         const limitPerPage = 10;
         const posts = await PostModel.find({})
             .limit(limitPerPage)
-            .skip(limitPerPage * (Number(page) - 1));
+            .skip(limitPerPage * (Number(page) - 1))
+            .sort({ createdAt: -1 });
         const count = await PostModel.countDocuments();
         return res.render("index", {
             posts,
@@ -55,9 +56,11 @@ class MainController {
         if (!category) {
             return res.redirect("/");
         }
-        const posts = await CategoryModel.findOne({ name: category }).populate(
-            "posts"
-        );
+        const posts = await CategoryModel.findOne({ name: category }).populate({
+            path: "posts",
+            options: { sort: { createdAt: -1 } },
+        });
+        console.log(posts);
         if (!posts) {
             return res.redirect("/");
         }
