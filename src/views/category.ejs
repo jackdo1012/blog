@@ -6,11 +6,10 @@
 <html>
     <body>
         <%- include("./partials/navBar.ejs", {here: "categories"}) %>
-        <div class="category">
+        <div class="category page">
             <p class="category__title">Categories</p>
             <div class="category__items">
                 <% for (let i = 0; i < categories.length; i++) { %>
-                    <% console.log(categories) %>
                     <div class="category__item" onclick="window.open<%= `("/category/${categories[i].name}", "_self")` %>">
                         <%= categories[i].name %><span><%= categories[i].posts.length %></span>
                     </div>

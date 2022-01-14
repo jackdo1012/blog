@@ -7,7 +7,7 @@
     <body>
         <% const here = "" %>
         <%- include("./partials/navBar.ejs", {here: ""}) %>
-        <div class="category">
+        <div class="category page">
             <h1 class="category__title"><i class="fas fa-tag"></i> <%= category %></h1>
             <div class="category__blog-list">
                 <% for (let i = 0; i < posts.length; i++) { %>

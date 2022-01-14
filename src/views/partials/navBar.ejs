@@ -6,6 +6,8 @@
         width: var(--nav-width);
         height: 100vh;
         user-select: none;
+        transform: translateX(0);
+        transition: transform 0.3s ease-in-out;
     }
     .navbar__name {
         width: calc(var(--nav-width) / 3);
@@ -22,7 +24,7 @@
         border-radius: 50%;
     }
     .navbar__name span {
-        font-size: 1.5vw;
+        font-size: 1.25rem;
         font-weight: bold;
         text-align: center;
     }
@@ -72,7 +74,49 @@
     .navbar__social a:visited {
         color: var(--dark-main-text);
     }
-
+    .hamburger {
+        display: none;
+        visibility: hidden;
+        position: relative;
+        width: 2rem;
+        height: 2rem;
+    }
+    .hamburger i {
+        position: absolute;
+        inset: 0;
+    }
+    .hamburger i::before {
+        font-size: 2rem;
+    }
+    @media screen and (max-width: 480px) {
+        .navbar {
+            z-index: 10;
+            transform: translateX(-100%);
+            width: 40vw;
+        }
+        .navbar__name {
+            width: calc(40vw / 3);
+            margin: 1rem calc(40vw / 3);
+        }
+        .navbar__name a img {
+            width: calc(40vw / 3);
+            height: calc(40vw / 3);
+        }
+        
+        .navbar__list {
+            width: 40vw;
+        }
+        .navbar__social {
+            width: 40vw;
+        }
+        .hamburger {
+            position: fixed;
+            display: block;
+            visibility: visible;
+            top: 5vw;
+            right: calc((5vw + 2rem) * -1);
+        }
+    }
 </style>
 <div class="navbar">
     <div class="navbar__name">
@@ -84,7 +128,7 @@
     <div class="navbar__list">
         <a href="/" class="navbar__list--item">Home</a>
         <a href="/categories" class="navbar__list--item">Categories</a>
-        <a href="https://jackdo1012.netlify.app" target="_blank" class="navbar__list--item">About</a>
+        <a href="https://jackdo1012.tk" target="_blank" class="navbar__list--item">About</a>
         <div class="current"></div>
     </div>
     <div class="navbar__social">
@@ -93,7 +137,20 @@
         <a href="https://facebook.com/jackdo1012" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="mailto:dominhtrijack@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
     </div>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
     <script>
+        const root = document.querySelector(":root")
+        let navStatus = false // false = close, true = open
+        document.querySelector(".hamburger").onclick = function () {
+            if (navStatus) {
+                document.querySelector(".navbar").style.transform = "translateX(-100%)"
+                root.style.setProperty("--nav-width", "0")
+            } else {
+                document.querySelector(".navbar").style.transform = "translateX(0)"
+                root.style.setProperty("--nav-width", "40vw")
+            }
+            navStatus = !navStatus
+        }
         let dividedBy
         if ("<%= here %>" !== "") {
             const allNavItem = document.querySelectorAll(".navbar__list--item")

@@ -6,7 +6,7 @@
     </head>
     <body>
         <%- include("./partials/navBar.ejs", {here: ""}) %>
-        <div class="blog">
+        <div class="blog page">
             <p class="blog__title"><%= title %></p>
             <p class="blog__info"><%= author %>, <%= new Date(date).toLocaleDateString("vi-vn", { year: "numeric", month: "short", day: "numeric"}) %></p>
             <div class="blog__content"><%- content %></div>

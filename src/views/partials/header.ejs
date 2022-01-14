@@ -30,4 +30,36 @@
         --nav-width: 20vw;
         --page-width: 80vw;
     }
+    .page {
+        width: var(--page-width);
+        margin-left: var(--nav-width);
+        height: 100vh;
+        background-color: var(--dark-page-bg);
+        overflow: scroll;
+        -ms-overflow-style: none:
+        scrollbar-width: none;
+        transition: margin-left 0.3s ease-in-out;
+    }
+    .page::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        :root {
+            --nav-width: 30vw;
+            --page-width: 70vw;
+        }
+        html {
+            font-size: 14px;
+        }
+    }
+    @media screen and (max-width: 480px) {
+        :root {
+            --nav-width: 0;
+            --page-width: 100vw;
+        }
+        html {
+            font-size: 12px;
+        }
+    }
 </style>
