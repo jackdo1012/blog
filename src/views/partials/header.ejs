@@ -1,31 +1,51 @@
 <meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>Jack Do's Blog</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Jack Do's Blog">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Jack Do's Blog" />
 <link rel="icon" type="image/png" href="/img/avatar.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/default.min.css"> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/dracula.min.css" integrity="sha512-zKpFlhUX8c+WC6H/XTJavnEpWFt2zH9BU9vu0Hry5Y+SEgG21pRMFcecS7DgDXIegXBQ3uK9puwWPP3h6WSR9g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+<meta property="og:site_name" content="Jack Do's Blog Page" />
+<meta property="og:title" content="Jack Do's Blog" />
+<meta property="og:description" content="A web developer Blog" />
+<meta property="og:image" content="img/avatar.png" />
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+    rel="stylesheet"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/base16/dracula.min.css"
+    integrity="sha512-zKpFlhUX8c+WC6H/XTJavnEpWFt2zH9BU9vu0Hry5Y+SEgG21pRMFcecS7DgDXIegXBQ3uK9puwWPP3h6WSR9g=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
 <style>
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Open Sans', sans-serif;
+        font-family: "Open Sans", sans-serif;
     }
     :root {
-        --dark-page-bg: #0B0C10;
-        --dark-nav-bg: #1F2833;
-        --dark-main-text: #C5C6C7;
-        --dark-gray: #1F2833;
-        --dark-highlight-text: #66FCF1;
-        --dark-highlight-hover: #45A29E;
-        --dark-pagination-border: #3E4144;
+        --dark-page-bg: #0b0c10;
+        --dark-nav-bg: #1f2833;
+        --dark-main-text: #c5c6c7;
+        --dark-gray: #1f2833;
+        --dark-highlight-text: #66fcf1;
+        --dark-highlight-hover: #45a29e;
+        --dark-pagination-border: #3e4144;
         --dark-pagination-hover: #404142;
         --nav-width: 20vw;
         --page-width: 80vw;
@@ -36,7 +56,7 @@
         height: 100vh;
         background-color: var(--dark-page-bg);
         overflow: scroll;
-        -ms-overflow-style: none:
+        -ms-overflow-style: none;
         scrollbar-width: none;
         transition: margin-left 0.3s ease-in-out;
     }
