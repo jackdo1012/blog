@@ -28,7 +28,7 @@
         font-weight: bold;
         text-align: center;
     }
-    
+
     .navbar__list {
         display: flex;
         flex-direction: column;
@@ -102,7 +102,7 @@
             width: calc(40vw / 3);
             height: calc(40vw / 3);
         }
-        
+
         .navbar__list {
             width: 40vw;
         }
@@ -121,62 +121,88 @@
 <div class="navbar">
     <div class="navbar__name">
         <a href="/">
-            <img src="/img/avatar.png" />
+            <img
+                src="https://0.gravatar.com/avatar/69acb4dd43832e16b4eb65a43c2971ac?s=800"
+            />
         </a>
         <span>Jack Do</span>
     </div>
     <div class="navbar__list">
         <a href="/" class="navbar__list--item">Home</a>
         <a href="/categories" class="navbar__list--item">Categories</a>
-        <a href="https://jackdo1012.tk" target="_blank" class="navbar__list--item">About</a>
+        <a
+            href="https://jackdo1012.tk"
+            target="_blank"
+            class="navbar__list--item"
+            >About</a
+        >
         <div class="current"></div>
     </div>
     <div class="navbar__social">
-        <a href="https://github.com/jackdo1012" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="https://twitter.com/jackdo1012" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a href="https://facebook.com/jackdo1012" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="mailto:dominhtrijack@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/jackdo1012" target="_blank"
+            ><i class="fab fa-github"></i
+        ></a>
+        <a href="https://twitter.com/jackdo1012" target="_blank"
+            ><i class="fab fa-twitter"></i
+        ></a>
+        <a href="https://facebook.com/jackdo1012" target="_blank"
+            ><i class="fab fa-facebook"></i
+        ></a>
+        <a href="mailto:dominhtrijack@gmail.com" target="_blank"
+            ><i class="fas fa-envelope"></i
+        ></a>
     </div>
     <div class="hamburger"><i class="fas fa-bars"></i></div>
     <script>
-        const root = document.querySelector(":root")
-        let navStatus = false // false = close, true = open
+        const root = document.querySelector(":root");
+        let navStatus = false; // false = close, true = open
         document.querySelector(".hamburger").onclick = function () {
             if (navStatus) {
-                document.querySelector(".navbar").style.transform = "translateX(-100%)"
-                root.style.setProperty("--nav-width", "0")
+                document.querySelector(".navbar").style.transform =
+                    "translateX(-100%)";
+                root.style.setProperty("--nav-width", "0");
             } else {
-                document.querySelector(".navbar").style.transform = "translateX(0)"
-                root.style.setProperty("--nav-width", "40vw")
+                document.querySelector(".navbar").style.transform =
+                    "translateX(0)";
+                root.style.setProperty("--nav-width", "40vw");
             }
-            navStatus = !navStatus
-        }
-        let dividedBy
+            navStatus = !navStatus;
+        };
+        let dividedBy;
         if ("<%= here %>" !== "") {
-            const allNavItem = document.querySelectorAll(".navbar__list--item")
+            const allNavItem = document.querySelectorAll(".navbar__list--item");
             allNavItem.forEach((item, index) => {
                 if (item.innerHTML.toLowerCase() === "<%= here %>") {
-                    dividedBy = index
+                    dividedBy = index;
                 }
-            })
-            document.querySelector(".current").style.visibility = "visible"
-            document.querySelector(".current").style.top = `calc(100% / 3 * ${dividedBy} + 0.5rem)`
+            });
+            document.querySelector(".current").style.visibility = "visible";
+            document.querySelector(
+                ".current",
+            ).style.top = `calc(100% / 3 * ${dividedBy} + 0.5rem)`;
         }
-        document.querySelectorAll(".navbar__list--item").forEach(each => {
+        document.querySelectorAll(".navbar__list--item").forEach((each) => {
             each.onmouseover = function () {
-                document.querySelector(".current").style.top = `calc(100% / 3 * ${[...each.parentNode.children].indexOf(each)} + 0.5rem)`
-                document.querySelector(".current").style.visibility = "visible"
-            }
-        })
-        document.querySelectorAll(".navbar__list--item").forEach(each => {
+                document.querySelector(
+                    ".current",
+                ).style.top = `calc(100% / 3 * ${[
+                    ...each.parentNode.children,
+                ].indexOf(each)} + 0.5rem)`;
+                document.querySelector(".current").style.visibility = "visible";
+            };
+        });
+        document.querySelectorAll(".navbar__list--item").forEach((each) => {
             each.onmouseout = function () {
                 if ("<%= here %>" === "") {
-                    document.querySelector(".current").style.top = null
-                    document.querySelector(".current").style.visibility = "hidden"
+                    document.querySelector(".current").style.top = null;
+                    document.querySelector(".current").style.visibility =
+                        "hidden";
                 } else {
-                    document.querySelector(".current").style.top = `calc(100% / 3 * ${dividedBy} + 0.5rem)`
+                    document.querySelector(
+                        ".current",
+                    ).style.top = `calc(100% / 3 * ${dividedBy} + 0.5rem)`;
                 }
-            }
-        })
+            };
+        });
     </script>
 </div>
